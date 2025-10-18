@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Keuangan Anak IT - Digital Ledger</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <header>
+        <h1><i class="fas fa-coins neon-text"></i> Keuangan Anak IT</h1>
+        <p>Kelola uang sakumu, rakit PC impianmu.</p>
+    </header>
+
+    <main>
+        <section class="balance-summary glow-box">
+            <h2>Saldo Dompet Digital</h2>
+            <p id="current-balance" class="balance-amount">$0</p>
+            <div class="summary-details">
+                <div class="income">Pemasukan: <span id="total-income" class="income-amount">$0</span></div>
+                <div class="expense">Pengeluaran: <span id="total-expense" class="expense-amount">$0</span></div>
+            </div>
+        </section>
+
+        <section class="transaction-form glow-box">
+            <h2><i class="fas fa-plus-circle neon-text"></i> Tambah Transaksi</h2>
+            <form id="add-transaction-form">
+                <div class="input-group">
+                    <label for="type">Jenis Transaksi</label>
+                    <select id="type" required>
+                        <option value="income">Pemasukan (Uang Saku)</option>
+                        <option value="expense">Pengeluaran (Jajan/Beli Komponen)</option>
+                    </select>
+                </div>
+
+                <div class="input-group">
+                    <label for="description">Deskripsi</label>
+                    <input type="text" id="description" required placeholder="Contoh: Beli RAM 8GB">
+                </div>
+
+                <div class="input-group">
+                    <label for="amount">Jumlah (IDR)</label>
+                    <input type="number" id="amount" required placeholder="Contoh: 150000">
+                </div>
+                
+                <div class="input-group">
+                    <label for="image-upload">Bukti Pembelian (Opsional)</label>
+                    <input type="file" id="image-upload" accept="image/*">
+                </div>
+
+                <button type="submit" class="submit-button animate-glow">Catat Transaksi</button>
+            </form>
+        </section>
+
+        <section class="history-section">
+            <h2>Riwayat Transaksi</h2>
+            <ul id="transaction-history" class="history-list">
+                </ul>
+        </section>
+    </main>
+
+    <footer>
+        <p>Digital Ledger v1.0 | Ditenagai oleh JavaScript</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
