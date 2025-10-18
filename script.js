@@ -87,8 +87,9 @@ document.addEventListener('DOMContentLoaded', () => {
             addTransaction(type, description, amount, imageData);
         }
     });
+// ... (semua kode di atas fungsi addTransaction) ...
 
-    // Fungsi Inti Penambahan Transaksi
+    // Fungsi Inti Penambahan Transaksi (DIPERBARUI)
     function addTransaction(type, description, amount, imageData) {
         if (isNaN(amount) || amount <= 0) return;
 
@@ -98,18 +99,27 @@ document.addEventListener('DOMContentLoaded', () => {
             description,
             amount,
             date: new Date().toISOString(),
-            imageData // Simpan data gambar Base64
+            imageData
         };
 
-        transactions.push(newTransaction);
+        transactions.unshift(newTransaction); // Gunakan unshift agar transaksi baru di atas
         
-        // Reset formulir
         form.reset(); 
 
-        // Render ulang tampilan
+        // 1. Render ulang tampilan
         renderTransactions();
+        
+        // 2. Tambahkan animasi scanning pada item pertama (yang baru ditambahkan)
+        const newItem = historyList.querySelector('.transaction-item');
+        if (newItem) {
+            newItem.classList.add('scanning');
+            // Hapus kelas 'scanning' setelah animasi selesai
+            setTimeout(() => {
+                newItem.classList.remove('scanning');
+            }, 800); 
+        }
     }
 
-    // Initial load (kosong)
-    renderTransactions(); 
+// ... (sisa kode di bawah fungsi addTransaction) ...
+    
 });
