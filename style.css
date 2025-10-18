@@ -1,0 +1,182 @@
+/* -- 1. Variabel & Reset Dasar -- */
+:root {
+    --bg-dark: #1a1a2e; /* Background Gelap */
+    --neon-blue: #00bcd4; /* Biru Neon */
+    --neon-green: #00e676; /* Hijau Neon */
+    --text-light: #f4f4f4;
+    --card-dark: #2c2c44;
+}
+
+body {
+    font-family: 'Space Mono', monospace;
+    margin: 0;
+    padding: 0;
+    background-color: var(--bg-dark);
+    color: var(--text-light);
+    line-height: 1.6;
+}
+
+/* --- Efek Neon/Glow Keren --- */
+.neon-text {
+    color: var(--neon-blue);
+    text-shadow: 0 0 5px var(--neon-blue), 0 0 10px var(--neon-blue);
+}
+
+.glow-box {
+    background-color: var(--card-dark);
+    border-radius: 10px;
+    padding: 30px;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.5), 0 0 10px rgba(0, 0, 0, 0.3);
+    border: 1px solid rgba(0, 188, 212, 0.2);
+}
+
+/* --- Animasi Tombol Keren (Menyala saat di-hover) --- */
+.animate-glow {
+    background-color: var(--neon-green);
+    color: var(--bg-dark);
+    border: none;
+    padding: 12px 25px;
+    border-radius: 5px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+}
+
+.animate-glow:hover {
+    background-color: var(--neon-blue);
+    color: var(--text-light);
+    box-shadow: 0 0 15px var(--neon-blue), 0 0 25px var(--neon-blue);
+    transform: translateY(-2px) scale(1.02);
+}
+
+/* -- 2. Layout Utama -- */
+header {
+    text-align: center;
+    padding: 40px 20px;
+    border-bottom: 2px solid var(--neon-blue);
+    box-shadow: 0 4px 8px rgba(0, 188, 212, 0.2);
+}
+
+main {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    gap: 30px;
+    padding: 30px 5%;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* -- 3. Ringkasan Saldo -- */
+.balance-summary {
+    text-align: center;
+    border-top: 3px solid var(--neon-blue);
+    animation: fadeIn 1s ease-out; /* Animasi Keren: Muncul saat dimuat */
+}
+
+.balance-amount {
+    font-size: 3em;
+    font-weight: 700;
+    color: var(--neon-green);
+    text-shadow: 0 0 8px var(--neon-green);
+    margin: 10px 0 20px;
+}
+
+.summary-details {
+    display: flex;
+    justify-content: space-around;
+    padding-top: 15px;
+    border-top: 1px dashed rgba(255, 255, 255, 0.1);
+}
+.income-amount { color: var(--neon-green); }
+.expense-amount { color: #ff6b6b; /* Merah Neon */ }
+
+/* -- 4. Formulir Transaksi -- */
+.input-group {
+    margin-bottom: 15px;
+}
+.input-group label {
+    display: block;
+    margin-bottom: 5px;
+    color: var(--neon-blue);
+}
+.input-group input, .input-group select {
+    width: 100%;
+    padding: 10px;
+    background-color: #3f3f5a;
+    border: 1px solid rgba(0, 188, 212, 0.5);
+    color: var(--text-light);
+    border-radius: 5px;
+    box-sizing: border-box;
+    transition: border-color 0.3s;
+}
+.input-group input:focus, .input-group select:focus {
+    border-color: var(--neon-green);
+    outline: none;
+    box-shadow: 0 0 8px rgba(0, 230, 118, 0.5);
+}
+
+/* -- 5. Riwayat Transaksi -- */
+.history-list {
+    list-style: none;
+    padding: 0;
+}
+
+.transaction-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 20px;
+    margin-bottom: 10px;
+    border-radius: 8px;
+    transition: background-color 0.3s, transform 0.3s;
+    background-color: var(--card-dark);
+}
+
+/* Animasi Keren: Efek Geser/3D ringan saat di-hover */
+.transaction-item:hover {
+    background-color: #3e3e5c;
+    transform: translateX(5px);
+    box-shadow: 0 0 10px rgba(0, 188, 212, 0.3);
+}
+
+.transaction-item.income-row { border-left: 5px solid var(--neon-green); }
+.transaction-item.expense-row { border-left: 5px solid #ff6b6b; }
+
+.history-details {
+    flex-grow: 1;
+}
+
+.history-amount {
+    font-weight: 700;
+}
+
+/* Gambar Bukti */
+.history-image-container {
+    margin-left: 15px;
+}
+.history-image {
+    width: 50px;
+    height: 50px;
+    object-fit: cover;
+    border-radius: 5px;
+    cursor: pointer;
+    border: 1px solid var(--neon-blue);
+    transition: transform 0.3s;
+}
+.history-image:hover {
+    transform: scale(1.5); /* Animasi Keren: Zoom Gambar */
+    z-index: 10;
+}
+
+/* Responsiveness */
+@media (max-width: 768px) {
+    main {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* Keyframe Animasi */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
